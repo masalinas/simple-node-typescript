@@ -1,0 +1,15 @@
+{
+  "name": "poc-simple-node-typescript",
+  "version": "1.0.0",
+  "description": "A Simple typescript node project",
+  "scripts": {
+    "start": "./node_modules/.bin/tsc && node dist/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Miguel Salinas Gancedo",
+  "license": "ISC",
+  "dependencies": {
+    "rxjs": "^7.2.0",
+    "typescript": "^4.3.5"
+  }
+}
