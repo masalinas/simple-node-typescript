@@ -21,4 +21,4 @@ mkdir src
 mkdir dist
 
 step05: add npm start script in your package.json to compile and start your project
-"start": "npx tsc && node dist/main.js"
+"start": "npx tsc && node dist/main.js" 
