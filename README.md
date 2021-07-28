@@ -1,5 +1,5 @@
 # description
-A Simple typescript node project using rxjs library
+A Simple typescript node project using rxjs library from scrach
 
 # steps
 **step 01**: create working folder
