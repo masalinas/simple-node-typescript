@@ -1,4 +1,4 @@
-import { from, of } from 'rxjs';
+import { from } from 'rxjs';
 import { map, filter, reduce, groupBy, mergeMap, toArray  } from 'rxjs/operators';
 
 import { Product } from './product';
@@ -25,7 +25,7 @@ from(products).pipe(filter(product => product.active === true))
   });
 console.log('\n');
 
-// map products colletion
+// map products collection
 console.log('3) Create format product descriptions');
 from(products).pipe(map((product: Product) => product.name + 'with price ' + product.price))
   .subscribe((message: string) => {
