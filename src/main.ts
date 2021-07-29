@@ -1,5 +1,5 @@
-import { from } from 'rxjs';
-import { map, filter, reduce, groupBy, mergeMap, toArray  } from 'rxjs/operators';
+import { from, of } from 'rxjs';
+import { map, filter, reduce, groupBy, mergeMap, toArray, scan  } from 'rxjs/operators';
 
 import { Product } from './product';
 
@@ -51,5 +51,18 @@ from(products).pipe(groupBy(product => product.active),
                     mergeMap(group => group.pipe(toArray())))
     .subscribe(products => {
       console.log(products);
+    });
+console.log('\n');
+
+console.log('6) Totalize price of all products');
+from(products).pipe(reduce((total, product) => total += product.price, 0))
+    .subscribe(total => {
+      console.log(total);
+    });
+console.log('\n');
+
+of(products).pipe(map(product => product.reduce((total, product) => total += product.price, 0)))
+    .subscribe(total => {
+      console.log(total);
     });
 console.log('\n');

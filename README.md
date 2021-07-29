@@ -18,7 +18,7 @@ We could remove main attribute in your package.json
 
 **step 03**: install dependencies
 ```
-npm install typescript --save
+npm install typescript --save-dev
 npm install rxjs --save
 ```
 
