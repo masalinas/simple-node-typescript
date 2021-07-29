@@ -1,3 +1,6 @@
+import express, { Request, Response } from 'express';
+import path from 'path'; //from @types/node
+
 import { from, of } from 'rxjs';
 import { map, filter, reduce, groupBy, mergeMap, toArray, scan  } from 'rxjs/operators';
 
@@ -8,6 +11,28 @@ let products: Product[] = [
   {name: 'Banana', price: 8, active: false},
   {name: 'Orange', price: 10, active: true},
 ];
+
+// -------------------firing express app
+const app = express();
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// -------------------routes
+app.get('/home', (request: Request, response: Response)=>{
+  console.log(request.url)
+  response.json({ message: `Welcome to the home page!` })
+});
+
+app.get('/products', (request: Request, response: Response)=>{
+  response.json(products);
+});
+
+// --------------------Listen
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, ()=>{
+  console.log(`Server running on PORT ${ PORT }`);
+})
 
 // list all products
 console.log('1) List all products');
