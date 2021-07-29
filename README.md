@@ -14,7 +14,7 @@ cd simple-node-typescript
 npm init
 ```
 
-we could remove main attribute in your package.json
+We could remove main attribute in your package.json
 
 **step 03**: install dependencies
 ```
@@ -22,13 +22,23 @@ npm install typescript --save
 npm install rxjs --save
 ```
 
-**step04**: create source a destination folders in your project
+**step 04**: create typescript configuration file
 ```
-mkdir src
-mkdir dist
+npx tsc --init
 ```
 
-**step05**: add npm start script in your package.json to compile and start your project
+This commnad generate a tsconfig.json default file
+Now we must:
+   - Uncommnet the attribute moduleResolution
+   - Update the attribute outDir and set ./dist value
+
+**step 05**: create default source folder
 ```
+mkdir src
+```
+
+**step 06**: add npm start script in your package.json to compile and start your project
+```
+"build": "npx tsc"   
 "start": "npx tsc && node dist/main.js"   
 ```
